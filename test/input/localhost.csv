@@ -1,0 +1,6 @@
+device_type,ip
+cisco_ios,10.10.1.1
+cisco_xe,10.1.12.2
+cisco_xe,10.1.23.3
+cisco_xe,10.1.34.4
+

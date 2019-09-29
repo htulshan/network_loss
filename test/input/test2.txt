@@ -1,0 +1,215 @@
+#For Topology Diagram, Please refer file topology.txt
+
+Test2: (using local host as ICMP source)
+
+Source : PC : 10.10.1.2  DESTINATION : R4 10.1.34.4
+
+
+expected traceroute:
+Tracing route to 10.1.34.4 over a maximum of 4 hops
+
+  1    <1 ms    <1 ms    <1 ms  10.10.1.1
+  2     2 ms     2 ms     2 ms  10.1.12.2
+  3     3 ms     2 ms     2 ms  10.1.23.3
+  4     3 ms     3 ms     2 ms  10.1.34.4  
+
+
+Configured an ACL on R2 to reproduce network outage condition.
+
+Outputs from SCRIPT prompt:
+PS C:\Users\xyz\Desktop\python test scripts\test53> python test53.py
+============================================================
+Enter the IP details for source and destination.
+============================================================
+Enter the source IP : 10.10.1.2
+Enter the destination IP: 10.1.34.4
+The the number of hops between the source and destination: 4
+============================================================
+Enter the list of expceted path as csv file: localhost.csv                        <------------------------ csv file which has the expected traceroute data
+============================================================
+Enter the commands you want to collect from last hop devices(Enter 'OK' when done): <------------ Data we want to collect from network devices during outage.
+> show ip route eigrp
+> show ip arp
+> show log
+> OK
+============================================================
+Enter login credidentials for network devices.                                   <-------------------------- Command login credentials for all the network enquiments.
+Enter the username for devices: cisco
+Enter the login password for devices:
+Enter the enable secret for devices(press return if non is configured):
+============================================================
+Is the source IP on LOCALHOST or REMOTEHOST : LOCALHOST                        <-------------------------- To share if we want to use the local host machine as the source of ping or a remote network device
+============================================================
+============================================================
+Verify all the input data and press return the run the script
+or type break sequence to abort the script and re run it.
+============================================================
+============================================================
+
+Pinging 10.1.34.4 with 32 bytes of data:                                       <-------------------------- Initiated ping test.
+Reply from 10.1.34.4: bytes=32 time=2ms TTL=252
+
+Ping statistics for 10.1.34.4:
+    Packets: Sent = 1, Received = 1, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 2ms, Maximum = 2ms, Average = 2ms
+
+ping count = 1
+
+Pinging 10.1.34.4 with 32 bytes of data:
+Reply from 10.1.34.4: bytes=32 time=1ms TTL=252
+
+Ping statistics for 10.1.34.4:
+    Packets: Sent = 1, Received = 1, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 1ms, Maximum = 1ms, Average = 1ms
+
+ping count = 2
+
+Pinging 10.1.34.4 with 32 bytes of data:
+Reply from 10.1.34.4: bytes=32 time=4ms TTL=252
+
+Ping statistics for 10.1.34.4:
+    Packets: Sent = 1, Received = 1, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 4ms, Maximum = 4ms, Average = 4ms
+
+ping count = 3
+
+Pinging 10.1.34.4 with 32 bytes of data:
+Reply from 10.1.34.4: bytes=32 time=4ms TTL=252
+
+Ping statistics for 10.1.34.4:
+    Packets: Sent = 1, Received = 1, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 4ms, Maximum = 4ms, Average = 4ms
+
+ping count = 4
+
+Pinging 10.1.34.4 with 32 bytes of data:
+Reply from 10.1.34.4: bytes=32 time=1ms TTL=252
+
+Ping statistics for 10.1.34.4:
+    Packets: Sent = 1, Received = 1, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 1ms, Maximum = 1ms, Average = 1ms
+
+ping count = 5
+
+Pinging 10.1.34.4 with 32 bytes of data:
+Reply from 10.1.34.4: bytes=32 time=3ms TTL=252
+
+Ping statistics for 10.1.34.4:
+    Packets: Sent = 1, Received = 1, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 3ms, Maximum = 3ms, Average = 3ms
+
+ping count = 6
+
+Pinging 10.1.34.4 with 32 bytes of data:
+Reply from 10.1.34.4: bytes=32 time=1ms TTL=252
+
+Ping statistics for 10.1.34.4:
+    Packets: Sent = 1, Received = 1, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 1ms, Maximum = 1ms, Average = 1ms
+
+ping count = 7
+
+Pinging 10.1.34.4 with 32 bytes of data:
+Reply from 10.1.34.4: bytes=32 time=1ms TTL=252
+
+Ping statistics for 10.1.34.4:
+    Packets: Sent = 1, Received = 1, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 1ms, Maximum = 1ms, Average = 1ms
+
+ping count = 8
+
+Pinging 10.1.34.4 with 32 bytes of data:
+Reply from 10.1.34.4: bytes=32 time=4ms TTL=252
+
+Ping statistics for 10.1.34.4:
+    Packets: Sent = 1, Received = 1, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 4ms, Maximum = 4ms, Average = 4ms
+
+ping count = 9
+
+Pinging 10.1.34.4 with 32 bytes of data:
+Reply from 10.1.34.4: bytes=32 time=2ms TTL=252
+
+Ping statistics for 10.1.34.4:
+    Packets: Sent = 1, Received = 1, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 2ms, Maximum = 2ms, Average = 2ms
+
+ping count = 10
+
+Pinging 10.1.34.4 with 32 bytes of data:
+Reply from 10.1.34.4: bytes=32 time=3ms TTL=252
+
+Ping statistics for 10.1.34.4:
+    Packets: Sent = 1, Received = 1, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 3ms, Maximum = 3ms, Average = 3ms
+
+ping count = 11
+
+Pinging 10.1.34.4 with 32 bytes of data:
+Reply from 10.1.34.4: bytes=32 time=3ms TTL=252
+
+Ping statistics for 10.1.34.4:
+    Packets: Sent = 1, Received = 1, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 3ms, Maximum = 3ms, Average = 3ms
+
+ping count = 12
+
+Pinging 10.1.34.4 with 32 bytes of data:
+Reply from 10.1.34.4: bytes=32 time=6ms TTL=252
+
+Ping statistics for 10.1.34.4:
+    Packets: Sent = 1, Received = 1, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 6ms, Maximum = 6ms, Average = 6ms
+
+ping count = 13
+
+Pinging 10.1.34.4 with 32 bytes of data:                                    <-------------------------------- Here is configured aon the path to drop ICMP
+Reply from 10.1.34.4: Destination net unreachable.
+
+Ping statistics for 10.1.34.4:
+    Packets: Sent = 1, Received = 1, Lost = 0 (0% loss),
+
+ping count = 14
+============================================================
+Destination is unrechable from source
+Time elapsed since ping start = 15.048213958740234s.                         
+============================================================                     
+Tracing to the destination from source                                      <------------------------------- PING drop triggered traceroute from source to destination.
+
+Tracing route to 10.1.34.4 over a maximum of 4 hops
+
+  1    <1 ms    <1 ms    <1 ms  10.10.1.1
+  2     2 ms     2 ms     2 ms  10.1.12.2
+  3     3 ms     2 ms     2 ms  10.1.23.3
+  4  10.1.34.4  reports: Destination net unreachable.                     <------------------------------- Last visible IP address in traceroute is 10.1.34.4
+
+Trace complete.
+
+============================================================
+Collecting Data from the last hop devices
+
+Pinging 10.1.34.4 with 32 bytes of data:
+Request timed out.
+
+Ping statistics for 10.1.34.4:
+    Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),
+
+============================================================
+Device 10.1.34.4 is unreachable                                               <------------------------------- since 10.1.34.4 was not reachable we could not log into it.
+Data saved to file
+Time taken to collect outputs 6.924522399902344s                              <----------------------------------- Total time taken to run traceroute and collect output by logging into the device after the ICMP loss.
+Press return to exit
+PS C:\Users\xyz\Desktop\python test scripts\test53>
